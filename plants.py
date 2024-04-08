@@ -3,7 +3,7 @@
 import requests
 from flask import Flask, render_template, jsonify
 
-key = "Your_TREFER_TOKEN_HERE"
+key = "Your_TREFLE_TOKEN_HERE"
 r = requests.get('https://trefle.io/api/v1/species?filter%5Bflower_color%5D=red&token=' + key)
 flower_data = r.json()['data']
 
