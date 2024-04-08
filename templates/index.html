@@ -20,7 +20,7 @@
 	transform: rotate(0deg);"id="nextButton" >Next</button>
 </div>
     <script>
-        // Function to fetch the next image from the API
+   
         function getNextImage() {
             fetch('/next')
             .then(response => response.json())
@@ -31,7 +31,6 @@
             });
         }
 
-        // Add event listener to the Next Image button
         document.getElementById('nextButton').addEventListener('click', getNextImage);
     </script>
 </body>
