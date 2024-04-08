@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+</head>
+<body > 
+   
+    <h1 style="font-size: 40px; text-align: center;  margin: 0; font-style: italic; border-radius:  0 80px; ">Welcome to FLORA FLASH &#127802;</h1>
+    <div class="container"
+     style="text-align: center;  background-color:lavender; border-radius:  0 80px; ">
+    <h1 id="heading" style="font-size: 40px; ">{{ heading }}</h1> 
+
+    <img id="flowerImage"  style="width: 860px; height: 500px; align-items: center; border-radius:  0 80px;  box-shadow: 50px;"   class="imageapi" src="{{ image_url }}" alt="Image">
+    <button style="width: 80px;
+	height: 50px;
+	border-radius: 0 80px;
+	background-color: #44f044;
+	transform: rotate(0deg);"id="nextButton" >Next</button>
+</div>
+    <script>
+        // Function to fetch the next image from the API
+        function getNextImage() {
+            fetch('/next')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('flowerImage').src = data.image_url;
+                document.getElementById('flowerImage').alt = data.common_name;
+                document.getElementById('heading').textContent = data.common_name;
+            });
+        }
+
+        // Add event listener to the Next Image button
+        document.getElementById('nextButton').addEventListener('click', getNextImage);
+    </script>
+</body>
+</html>
+
+
+
+
+templates plants.py tempCodeRunnerFile.py
